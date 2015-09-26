@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C538C611BB75B0100AA1C70 /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C538C601BB75B0100AA1C70 /* Animation.swift */; settings = {ASSET_TAGS = (); }; };
 		2C65BBDC1BB6F28D00C8EAB3 /* Animation.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C65BBDB1BB6F28D00C8EAB3 /* Animation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2C65BBE31BB6F28D00C8EAB3 /* Animation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C65BBD81BB6F28D00C8EAB3 /* Animation.framework */; settings = {ASSET_TAGS = (); }; };
 		2C65BBE81BB6F28D00C8EAB3 /* AnimationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C65BBE71BB6F28D00C8EAB3 /* AnimationTests.swift */; };
@@ -23,6 +24,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2C538C601BB75B0100AA1C70 /* Animation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Animation.swift; sourceTree = "<group>"; };
 		2C65BBD81BB6F28D00C8EAB3 /* Animation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Animation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C65BBDB1BB6F28D00C8EAB3 /* Animation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Animation.h; sourceTree = "<group>"; };
 		2C65BBDD1BB6F28D00C8EAB3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -71,6 +73,7 @@
 		2C65BBDA1BB6F28D00C8EAB3 /* Animation */ = {
 			isa = PBXGroup;
 			children = (
+				2C538C601BB75B0100AA1C70 /* Animation.swift */,
 				2C65BBDB1BB6F28D00C8EAB3 /* Animation.h */,
 				2C65BBDD1BB6F28D00C8EAB3 /* Info.plist */,
 			);
@@ -142,6 +145,7 @@
 		2C65BBCF1BB6F28D00C8EAB3 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = dantelab;
 				TargetAttributes = {
@@ -193,6 +197,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C538C611BB75B0100AA1C70 /* Animation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -307,6 +312,7 @@
 		2C65BBED1BB6F28D00C8EAB3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -317,12 +323,14 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.dantelab.Animation;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		2C65BBEE1BB6F28D00C8EAB3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -375,6 +383,7 @@
 				2C65BBEE1BB6F28D00C8EAB3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2C65BBEF1BB6F28D00C8EAB3 /* Build configuration list for PBXNativeTarget "AnimationTests" */ = {
 			isa = XCConfigurationList;
@@ -383,6 +392,7 @@
 				2C65BBF11BB6F28D00C8EAB3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

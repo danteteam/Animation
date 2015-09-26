@@ -15,19 +15,19 @@ private let DefaultSpringDumpingInitialVelocity: CGFloat = 1.0
 
 
 public class BaseAnimation {
-    typealias Block =  ()->()
+    public typealias Block =  ()->()
     private var before: Block!
     private var after: Block!
     
     private init() {}
     
-    func before(block: Block!)-> Self {
+    public func before(block: Block!)-> Self {
         self.before = block
         return self
         
     }
     
-    func after(block: Block!)-> Self {
+    public func after(block: Block!)-> Self {
         self.after = block
         return self
     }
@@ -39,15 +39,15 @@ public class Animation: BaseAnimation {
     private var animations: [AnyObject] = []
     public override init() { }
     
-    func next() -> SingleItem{
+    public func next() -> SingleItem{
         return SingleItem(parent: self)
     }
     
-    func parallel() -> BatchAnimation {
+    public func parallel() -> BatchAnimation {
         return BatchAnimation(parent: self)
     }
     
-    func start(animated: Bool = true){
+    public func start(animated: Bool = true){
         before?()
         if animated {
             runAnimationWithIndex(0)
@@ -57,12 +57,12 @@ public class Animation: BaseAnimation {
     }
     
     
-    private func runActions() {
+    public func runActions() {
         for a in animations {
             if let single = a as? SingleItem {
-            single.before?()
-            single.animation?()
-            single.after?()
+                single.before?()
+                single.animation?()
+                single.after?()
             } else if let a = a as? BatchAnimation {
                 for item in a.animations {
                     item.before?()
@@ -83,16 +83,16 @@ public class Animation: BaseAnimation {
                 s.runWithCompletion({ (complete) -> Void in
                     self.runAnimationWithIndex(index + 1)
                 })
-
+                
             } else if let b = a as? BatchAnimation {
-                 b.runWithCompletion({ (complete) -> Void in
+                b.runWithCompletion({ (complete) -> Void in
                     self.runAnimationWithIndex(index + 1)
-                 })
+                })
             } else {
                 assertionFailure("Unknown object in animation stack: \(a)")
             }
         }
-     }
+    }
     
     public class Item : BaseAnimation{
         private var animation: Block!
@@ -103,37 +103,37 @@ public class Animation: BaseAnimation {
         private var options: UIViewAnimationOptions!
         
         
-        func animation(block: Block!)-> Self {
+        public func animation(block: Block!)-> Self {
             self.animation = block
             return self
         }
         
-        func delay(value: NSTimeInterval)-> Self {
+        public func delay(value: NSTimeInterval)-> Self {
             self.delay = value
             return self
         }
         
-        func duration(value: NSTimeInterval)-> Self {
+        public func duration(value: NSTimeInterval)-> Self {
             self.duration = value
             return self
         }
         
-        func springDumping(value: CGFloat) -> Self {
+        public func springDumping(value: CGFloat) -> Self {
             self.springDumping = value
             return self
         }
         
-        func initialSpringVelocity(value: CGFloat) -> Self {
+        public func initialSpringVelocity(value: CGFloat) -> Self {
             self.initialSpringVelocity = value
             return self
         }
         
-        func options(value: UIViewAnimationOptions) -> Self {
+        public func options(value: UIViewAnimationOptions) -> Self {
             self.options = value
             return self
         }
         
-        func runWithCompletion(completion: (Bool)->Void){
+        public func runWithCompletion(completion: (Bool)->Void){
             self.before?()
             UIView.animateWithDuration(
                 self.duration ?? DefaultAnimationTimeInterval,
@@ -159,7 +159,7 @@ public class Animation: BaseAnimation {
             super.init()
         }
         
-        func done() -> Animation {
+        public func done() -> Animation {
             parent.animations.append(self)
             return parent
         }
@@ -174,7 +174,7 @@ public class Animation: BaseAnimation {
             super.init()
         }
         
-        func done() -> BatchAnimation {
+        public func done() -> BatchAnimation {
             parent.animations.append(self)
             return parent
         }
@@ -191,16 +191,16 @@ public class Animation: BaseAnimation {
             super.init()
         }
         
-        func next() -> BatchItem {
+        public func next() -> BatchItem {
             return BatchItem(parent: self)
         }
         
-        func endParallel()-> Animation {
+        public func endParallel()-> Animation {
             parent.animations.append(self)
             return parent
         }
         
-        func runWithCompletion(completion: (Bool)-> Void){
+        public func runWithCompletion(completion: (Bool)-> Void){
             before?()
             var count: Int = 0
             for s in animations {
