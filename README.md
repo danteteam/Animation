@@ -7,7 +7,7 @@ let imageView = UIImageView()
 
 Animation()
     .before({
-        print("Block execured before whole animation")
+        print("The block is executed before whole animation")
     })
     .next()             // First animation
         .duration(1.0)
@@ -19,19 +19,20 @@ Animation()
             view.transform = CGAffineTransformMakeScale(2, 2)
         })
         .before ({ () -> () in
-            print("Block executed before this animation")
+            print("The block is executed before this animation")
         })
         .after ({ () -> () in
-            print("Block executed after this animation")
+            print("The block is executed after this animation")
         })
         .done()
     .next()             // Second animation
         .duration(2.0)
         .animation ({ () -> () in  // Second animation in sequence block
             imageView.transform = CGAffineTransformMakeScale(0.5, 0.5)
-        }).done()
+        })
+        .done()
     .after({ () -> () in
-        print("Block executed after whole animation")
+        print("The block is executed after whole animation")
     })
-    .start(false)            // Run all action without animation
+    .start() // Run the whole animation
 ```
