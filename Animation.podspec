@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "Animation"
-  s.version      = "0.0.2"
+  s.version      = "0.0.3"
   s.summary      = "A short description of Animation."
 
   # This description is used to generate tags and improve search results.
@@ -25,6 +25,7 @@ Pod::Spec.new do |s|
   #   * Write the description between the DESC delimiters below.
   #   * Finally, don't worry about the indent, CocoaPods strips it!
   s.description  = <<-DESC
+              A short description of Animation.
                    DESC
 
   s.homepage     = "http://EXAMPLE/Animation"
@@ -38,8 +39,8 @@ Pod::Spec.new do |s|
   #  Popular ones are 'MIT', 'BSD' and 'Apache License, Version 2.0'.
   #
 
-  s.license      = "MIT (example)"
-  # s.license      = { :type => "MIT", :file => "FILE_LICENSE" }
+  #s.license      = "MIT (example)"
+   s.license      = { :type => "MIT", :file => "LICENSE" }
 
 
   # ――― Author Metadata  ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -90,7 +91,7 @@ Pod::Spec.new do |s|
   #
 
   s.source_files  = "Animation", "Animation/**/*.swift"
-  s.exclude_files = "Classes/Exclude"
+  s.exclude_files = "Animation/Exclude"
 
   # s.public_header_files = "Animation/**/*.h"
 

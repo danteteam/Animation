@@ -43,6 +43,12 @@ public class Animation: BaseAnimation {
         return SingleItem(parent: self)
     }
     
+    public func next(animation: ()->Void) -> SingleItem{
+        let item = SingleItem(parent: self)
+        item.animation = animation
+        return item
+    }
+    
     public func parallel() -> BatchAnimation {
         return BatchAnimation(parent: self)
     }
@@ -162,6 +168,22 @@ public class Animation: BaseAnimation {
         public func done() -> Animation {
             parent.animations.append(self)
             return parent
+        }
+        
+        public func next() -> SingleItem {
+            return done().next()
+        }
+        
+        public func next(animation: ()->Void) -> SingleItem {
+            return done().next(animation)
+        }
+        
+        public func start() {
+            parent.start()
+        }
+        
+        public func start(animated: Bool){
+            parent.start(animated)
         }
     }
     
