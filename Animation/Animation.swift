@@ -8,8 +8,8 @@
 
 import UIKit
 
-private let DefaultAnimationTimeInterval: NSTimeInterval = 0.5
-private let DefaultAnimationDelay: NSTimeInterval = 0
+private let DefaultAnimationTimeInterval: TimeInterval = 0.5
+private let DefaultAnimationDelay: TimeInterval = 0
 private let DefaultSpringDumping: CGFloat = 1.0
 private let DefaultSpringDumpingInitialVelocity: CGFloat = 1.0
 
@@ -102,8 +102,8 @@ public class Animation: BaseAnimation {
     
     public class Item : BaseAnimation{
         private var animation: Block!
-        private var delay: NSTimeInterval!
-        private var duration: NSTimeInterval!
+        private var delay: TimeInterval!
+        private var duration: TimeInterval!
         private var springDumping: CGFloat!
         private var initialSpringVelocity: CGFloat!
         private var options: UIViewAnimationOptions!
@@ -114,12 +114,12 @@ public class Animation: BaseAnimation {
             return self
         }
         
-        public func delay(value: NSTimeInterval)-> Self {
+        public func delay(value: TimeInterval)-> Self {
             self.delay = value
             return self
         }
         
-        public func duration(value: NSTimeInterval)-> Self {
+        public func duration(value: TimeInterval)-> Self {
             self.duration = value
             return self
         }
